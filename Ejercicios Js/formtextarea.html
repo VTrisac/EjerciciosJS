@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            let frase1=" Explicación\n -----------\n Pasa el puntero del ratón ";
+            frase1+= "por encima de los enlaces.";
+            let frase2=" Página principal\n ----------------\n\n Cuando hagas ";
+            frase2+="Click en este enlace irás directamente a la página de inicio ";
+            frase2+="de mi web";
+            let frase3=" JavaScript\n -----------\n\n Este enlace te llevará a la ";
+            frase3+="página de inicio de Scripts en la que puedes encontrar muchos ";
+            frase3+="más trucos para realizar e incluir en tus páginas web";
+            let frase4=" Diccionarios\n -------------- \n\n Si tienes alguna duda ";
+            frase4+="sobre alguna palabra que no conoces, aquí encontrarás una ";
+            frase4+="recopilación de las palabras más comunes utilizadas en Internet.";
+            
+            function escribe(frase)
+            {
+            document.getElementById('cuadro').value=frase;
+            //Asignamos el valor de frase al objeto TEXTAREA del formulario
+            }
+        </script>
+        <style>
+            body {
+                color:#FFFFFF;
+                background-color:#000000;
+            }
+            /*a:visited {
+                color:#FF00FF;
+            } ---Ha dado problemas con el chrome se ponen a la vez todos los links de este color*/
+            table {
+                border-width:0px;
+            }
+        </style>
+    </head>
+    <body onload="escribe(frase1)">
+        <table>
+            <tbody>
+                <tr>
+                <td width=200 valign=top>
+                    <b>Opciones.</b><br>
+                    <a onmouseover="escribe(frase2)" href="#">Página principal</a><br>
+                    <a onmouseover="escribe(frase3)" href="#">JavaScripts</a><br>
+                    <a onmouseover="escribe(frase4)" href="#">Diccionarios</a>
+                </td>
+                <td>
+                    <form id="desplaza">
+                        <textarea id="cuadro" rows=8 cols=30></textarea>
+                    </form>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

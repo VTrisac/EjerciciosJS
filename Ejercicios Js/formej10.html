@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function irA()
+            {
+                var menu=document.getElementById("menu");
+                window.location.href = menu.options[menu.selectedIndex].value;
+                //En las nuevas versiones de navegadores podemos acceder directamente
+                //al value del cuadro lista usando la propiedad value
+                //window.location.href = menu.value;
+            }
+        </script>
+        <style>
+            select {
+                background-color: #FFA54A;
+                color: #000080;
+                font-size: 9pt;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="formulario">
+            <select id="menu" size="1" onchange="irA()">
+                <option selected value=”#”>Visitar</option>
+                <option value="http://www.google.es">Google</option>
+                <option value="http://www.yahoo.es">Yahoo</option>
+                <option value="http://www.bing.com">Bing</option>
+                <option value="http://es.ask.com">Ask</option>
+                <option value="http://yandex.com">Yandex</option>
+            </select>
+        </form>
+    </body>
+</html>

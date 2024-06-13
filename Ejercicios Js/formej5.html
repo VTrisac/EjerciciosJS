@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function sum()
+            {
+            var Total=0;
+            // Sumar los dos números utilizando la función eval.
+            Total= eval(document.getElementById('Numero1').value);
+            Total+= eval(document.getElementById('Numero2').value);
+            document.getElementById('Resultado').value = Total;
+            }
+            function esnumero(Caja)
+            {
+                var i=0;
+                var totnumeros = true; // Coger el valor del campo
+                var Campo=document.getElementById(Caja).value;
+                for (i=0;i<Campo.length;i++) // Mirar todos los caracteres.
+                {
+                  if ((Campo.substring(i,i+1) < "0") || (Campo.substring(i,i+1) >"9"))
+                    totnumeros=false; //Si no es un numero la variable se pone a false
+                }
+                if (!totnumeros) //Si no son todo números
+                {
+                    window.alert("Sólo Cifras"); //Mensaje de error
+                    document.getElementById(Caja).value=0;  //El valor de la caja de texto
+                                                            //lo ponemos a 0
+                    document.getElementById(Caja).focus(); //El campo coge el foco
+                    document.getElementById(Caja).select();//Selecciona el contenido
+                }
+            }
+            </script>
+        </head>
+    <body>
+        <form id="F1">
+            <input type="Text" id="Numero1" size="5" onBlur="esnumero('Numero1')">
+            <input type="Text" id="Numero2" size="5" onBlur="esnumero('Numero2')"><br>
+            <input type="Text" id="Resultado" size="5" disabled><br>
+            <input type="button" id="Boto" value="Suma" onClick="sum()">
+        </form>
+    </body>
+</html>

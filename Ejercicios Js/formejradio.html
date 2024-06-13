@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+        function Mensaje(msg, imagen)
+        {
+            alert(msg);
+            document.getElementById("foto").innerHTML= "<img src='imagenes/"+imagen+"'>";
+        }
+        </script>
+        <form method="post" action="">
+        <input type="radio" name="botonr" id="button" onClick="Mensaje('Has Elegido la opción 1','cohete.jpg')">Opción 1<br>
+        <input type="radio" name="botonr" id="button" onClick="Mensaje('Has Elegido la opción 2','coche.jpg')">Opción 2<br>
+        <input type="radio" name="botonr" id="button" onClick="Mensaje('Has Elegido la opción 3','moto.jpg')">Opción 3
+        </form>
+        <div id="foto" style=" position:fixed; left:130px; top: 10px;"></div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function conversion()
+            {
+                let bradio=document.getElementsByName("rad");
+                let CuadroTexto=document.getElementById("CuadroTexto");
+                if (bradio[0].checked == true)
+                {
+                    CuadroTexto.value = CuadroTexto.value.toUpperCase();
+                    //Pasamos el contenido de la caja de texto a Mayúsculas
+                }
+                else
+                    if (bradio[1].checked == true)
+                    {
+                        CuadroTexto.value = CuadroTexto.value.toLowerCase();
+                    //Pasamos el contenido de la caja de texto a Minúsculas
+                    }
+            }
+        </script>
+        </head>
+        <body>
+            <form>
+                <input type="text" id="CuadroTexto" size="25"><br>
+                <input type="radio" name="rad" value="May">Mayúsculas<br>
+                <input type="radio" name="rad" value="Min">Minúsculas<br>                
+                <input type="button" id="Boton" value="Convertir" onClick="conversion()">
+            </form>
+        <hr><hr>
+    </body>
+</html>

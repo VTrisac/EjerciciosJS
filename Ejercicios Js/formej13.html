@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+       
+        /* Función que mira el elemento seleccionado de la lista y según su valor
+         pone el nombre de una montaña en el cuadro de texto Texto*/
+        let TMontañas = ["Everest","Pirineos","Andes","Alpes","Urales"];
+        let TPlayas = ["Cancún","Copacabana","Costa del Sol", "Hawai", "Acapulco"];
+        let TRios = ["Ebro","Volga","Amazonas","Nilo", "Támesis"];
+        let TCiudades = ["Barcelona","Berlín","Moscu","Roma", "Londres"];
+         
+        function rellenar(tabla)   
+         {
+            //El parámetro tabla corresponderá al Array que utilizaremos
+            //para rellenar el select
+            let cuadrolista = document.getElementById("listado");            
+            //Eliminamos todos los elementos anteriores de la lista
+            cuadrolista.options.length=0;
+            
+            for(let i=0; i<tabla.length; i++)
+            {                
+                //Recorremos todo el array y agregamos cada posición de la tabla en el select
+                let elemento = document.createElement("option");
+                elemento.text = tabla[i];
+                cuadrolista.add(elemento);
+            }                     
+         } 
+        
+        function Buscar()
+        {
+           let Lista=document.getElementById("listado");
+           let Texto=document.getElementById("Contenido");
+           let i=0; 
+                /*Variable índice que utilizaremos para recorrer la lista
+                desde el primer  elemento*/
+           Texto.value=Texto.value.toUpperCase();  
+                // Convertir el texto a mayúsculas
+                /* Mientras no se hayan mirado todos los elementos y no se encuentre el
+                elemento, pasamos el elemento del array tambíen a mayúsculas para comparar*/
+                while ((i < Lista.length) &&  (Texto.value != Lista.options[i].text.toUpperCase()))
+                        i=i+1;                    
+                        // Mirar siguiente elemento
+                if (i<Lista.length)                        
+                        alert("Elemento encontrado dentro de la lista");
+                        // Este elemento pasa a ser el seleccionado
+                    else   // No encontrado
+                        alert("No ha sido encontrado este elemento"); // Mostrar mensaje.
+        }
+       </script>
+    </head>
+    <body>
+        <form ID="F1">
+        <p>
+          <input type="radio" name="oplistado" id="oplistado" value="Playas" onchange="rellenar(TPlayas)"/>Playas 
+          <input type="radio" name="oplistado" id="oplistado" value="Ríos" onchange="rellenar(TRios)" />Ríos 
+          <input type="radio" name="oplistado" id="oplistado" value="Montañas" onchange="rellenar(TMontañas)" />Montañas 
+          <input type="radio" name="oplistado" id="oplistado" value="Ciudades" onchange="rellenar(TCiudades)"/>Ciudades
+        </p>
+        <p>
+          <select name="listado" id="listado">
+            <option>Elije una opción</option>
+          </select>
+        </p>
+        <p>
+            <label for="Contenido"></label>
+            <input type="text" name="Contenido" id="Contenido" />
+            <input type="button" name="boton" id="boton" value="Comprobar" onclick="Buscar()"/>
+        </p>
+        </form>
+    </body>
+</html>

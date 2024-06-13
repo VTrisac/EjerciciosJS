@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function gestform()
+            { //Comprobación de los datos introducidos en los controles del formulario
+              let Correcto=true;
+              let TC=document.getElementsByName("R1");
+              
+              if (document.getElementById('Nombre').value == "")
+                 Correcto=false;
+              if (document.getElementById('Apellidos').value == "")
+                 Correcto=false;
+              if (TC[0].checked==true && document.getElementById('Cuenta').value == "")
+                 Correcto=false;
+
+              if (Correcto)
+                 alert("Formulario Correcto");
+              else
+                 alert("Formulario Incorrecto");
+            }
+
+            function Calcform(C1,C2,C3,C4)
+            {//Función que realiza el calculo de los productos seleccionados
+              let suma=0;
+              if (document.getElementById(C1).checked)
+                 suma+=eval(document.getElementById(C1).value);
+              if (document.getElementById(C2).checked)
+                 suma+=eval(document.getElementById(C2).value);
+              if (document.getElementById(C3).checked)
+                 suma+=eval(document.getElementById(C3).value);
+              if (document.getElementById(C4).checked)
+                 suma+=eval(document.getElementById(C4).value);
+
+              document.getElementById('Total').value=suma + " €";
+            }
+        </script>
+        <style type="text/css">
+        table {
+                background-color: #9F9;
+                color: #03F;
+                width:630px;
+                border:#000000 solid 1px;
+        }
+        td{border:#000000 solid 1px;}
+        body{ background: white;}
+        </style>
+    </head>
+    <body>
+        <form method="POST" id=F1>
+            <table>
+                <tbody><tr>
+                <td>Nombre:</td>
+                <td><input type="text" size="20" id="Nombre"></td>
+                <td>Apellidos:</td>
+                <td><input type="text" size="20" id="Apellidos"></td>
+              </tr>
+              <tr>
+                <td colspan="4" align="center">Capitales Provincia:
+                  <select id="D1" size="1">
+                    <option>Valencia</option>
+                    <option>Barcelona</option>
+                    <option>Madrid</option>
+                    <option>Sevilla</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td colspan="4">Forma de Pago</td>
+              </tr>
+              <tr>
+                <td><input type="radio" checked id="R1" name="R1" value="TC">Tarjeta de credito</td>
+                <td><input type="radio" id="R1" name="R1" value="CR">ContraReembolso</td>
+                <td colspan="2"><input type="radio" id="R1" name="R1" value="CO">Contado</td>
+              </tr>
+              <tr>
+                <td>Tarjetas:
+                  <select id="D2" size="1">
+                    <option>Visa</option>
+                    <option>MasterCard</option>
+                    <option>4B</option>
+                </select></td>
+                <td colspan="3">Nº Tarjeta:
+                <input type="text" size="20" id="Cuenta"></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Productos</td>
+                <td colspan="3">&nbsp;</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="C1" value="3">Patatas (3 €)</td>
+                <td><input type="checkbox" id="C2" value="2">Higos (2 €)</td>
+                <td><input type="checkbox" id="C3" value="5">Fresas (5 €)</td>
+                <td><input type="checkbox" id="C4" value="3">Champú (3 €)</td>
+              </tr>
+              <tr>
+                <td colspan="3" align="right">Total: </td>
+                <td><input type="text" size="20" id="Total"></td>
+              </tr></tbody>
+              <tfoot>
+                  <tr align="center">
+                    <td colspan="2">
+                        <input type="Button" id="B1" value="Enviar" onClick="gestform()">
+                        <input type="Button" id="B3" value="Cancelar">
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="Button" id="B2" value="Calcular" onClick="Calcform('C1','C2','C3','C4')">
+                    </td>
+                </tr>
+              </tfoot>
+            </table>
+        </form>
+    </body>
+</html>

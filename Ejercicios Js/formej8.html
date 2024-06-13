@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>        
+            function Cambiar()
+            {
+                let documento=document.getElementById("documento");
+                //Examinamos el estado de la Casilla1 para asignar el fondo del documentos.
+                if (document.getElementById("Casilla1").checked)
+                   documento.bgColor = "blue";
+                else
+                   documento.bgColor = "green";
+                //Ahora lo mismo pero con la Casilla2 para asignar el color de las letras.
+                if (document.getElementById("Casilla2").checked)
+                   documento.text="white";
+                else
+                   documento.text="black";
+           }        
+        </script>
+    </head>
+    <body id="documento">
+        <p>Página de prueba</p>
+        <form>
+          <input type="Checkbox" id="Casilla1" value="Fondo Azul">Fondo Azul <br>
+          <input type="Checkbox" id="Casilla2" value="Texto Blanco">Texto Blanco <br>
+          <input type="Button" id="Botón1" value="Ejecutar" onClick="Cambiar()"><br>
+        </form>
+        <hr><hr>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function rellenar()
+            {
+                var Montaña = new Array("Alpes","Everest","Apeninos","Urales","Andes");
+                var cuadrolista = document.getElementById("lista");
+                for (var i=0; i<Montaña.length; i++)
+                {
+                    var elemento = document.createElement("option");
+                    //Es necesario crear la variable del nuevo elemento dentro del
+                    //bucle sino en lugar de añadir uno nuevo se reemplazará el actual
+                    elemento.text = Montaña[i];
+                    cuadrolista.add(elemento);
+                }
+            }
+            function borrar(){
+                var cuadrolista = document.getElementById("lista");
+                cuadrolista.options.length=0;
+            }
+        </script>
+    </head>
+    <body>
+        <form id="F1">
+            <select id="lista">
+            </select>
+            <br><br>
+            <input type="radio" ID="Escoger" onClick="rellenar()">Montaña<br><br>
+            <input type="button" ID="botborrar" onClick="borrar()" value="Borrar Lista">
+        </form>
+    </body>
+</html>

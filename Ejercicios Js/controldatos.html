@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="validar.js"></script>
+    </head>
+    <body>
+        <form id="formu">
+            Entrada de Datos:<br>
+            <br> Nombre:
+            <input type="Text" id="Nombre" size="50" onblur="ValidarNombre('Nombre')">
+            <br> Nacionalidad:
+            <input type="Text" id="Nacionalidad" size="20" value="España" onfocus="SeleccionaContenido('Nacionalidad')">
+            <br> E-Mail:
+            <input type="Text" id="Email" size="20" onBlur="ValidarEmail('Email')">
+            <br><br>
+            <input type="button" id="Validar" value="Validar" onclick="ValidarFrm()">
+       </form>
+    </body>
+</html>

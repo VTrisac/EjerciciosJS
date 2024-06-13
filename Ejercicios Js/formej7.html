@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function Marcar_Tres_Primeras()
+            {
+                //Obtenemos todos los objetos input, el 0 corresponde al botón
+                let casillas=document.getElementsByTagName("input");
+                casillas[1].checked=true; // Activa la casilla
+                casillas[2].checked=true; // Activa la casilla
+                casillas[3].click();
+                // Si la casilla 3 está activada la desactiva y si está
+                // desactivada la activa
+            }
+            function Hacer_Alguna_Cosa()
+            {
+                let casilla=document.getElementById("Casilla4");
+                if (casilla.checked == true) // Si casilla activada
+                alert("Hacer Alguna Cosa");
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="Button" id="Boton1" value="TRES PRIMERAS" onClick="Marcar_Tres_Primeras()"><br>
+            <input type="Checkbox" id="Casilla1" value="Opción1">Primera Opción<br>
+            <input type="Checkbox" id="Casilla2" value="Opción2">Segunda Opción<br>
+            <input type="Checkbox" id="Casilla3" VALUE="Opción3">Tercera Opción<br>
+            <input type="Checkbox" id="Casilla4" value="Opción4" onClick="Hacer_Alguna_Cosa()"> Cuarta Opción.
+        </form>
+        <hr><hr>
+    </body>
+</html>

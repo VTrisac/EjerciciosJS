@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function Borrarelemento() {
+                let x = document.getElementById("frutas");
+                x.remove(2);
+                //Indicamos dentro del método remove la posición del elemento a
+                //eliminar del cuadro select
+            }
+        </script>
+            <form>
+                <select id="frutas" size="6">
+                    <option>Manzana</option>
+                    <option>Pera</option>
+                    <option>Platano</option>
+                    <option>Naranja</option>
+                    <option>Mandarina</option>
+                    <option>Melocotón</option>
+                </select>
+            </form>
+            <br>
+            <button onclick="Borrarelemento()">Eliminar Fruta situada en el index "2"</button>
+    </body>
+</html>

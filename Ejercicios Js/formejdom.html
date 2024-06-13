@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <input type="button" onclick="miformulario()" value="Crear controles">
+        <br>
+        <script>
+            function mostrar(){alert('mensaje desde el botón');}
+            function miformulario(){
+                //Creamos una variable para la primera caja de texto
+                //primero indicamos que es un control input
+                var cajanombre = document.createElement("input");
+                //especificamos el tipo en este caso caja de texto
+                cajanombre.type="text";
+                //le asignamos un contenido inicial mediante la propiedad value
+                cajanombre.value="Introduzca el nombre";
+                //añadimos el control a la página
+                document.body.appendChild(cajanombre);
+                var cajaapellido = document.createElement("input");
+                cajaapellido.type="text";
+                cajaapellido.value="Introduzca el apellido";
+                document.body.appendChild(cajaapellido);
+                var boton = document.createElement("input");
+                boton.type="button";
+                boton.value="Pulsa el botón";
+                //Hemos definido desde DOM el contenido del evento onclick del
+                //botón que se mostrará en la página para que llame a una función
+                boton.onclick=function(){mostrar();};
+                //También podría indicar directamente la operación que ha de realizar
+                //el botón dentro de la función del siguiente modo
+                //boton.onclick=function(){alert('mensaje desde el botón');};
+                document.body.appendChild(boton);
+            }
+        </script>
+    </body>
+</html>

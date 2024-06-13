@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function CambiarFondo()
+            {
+            var menucolores=document.getElementById("Colores");
+            var indice = menucolores.selectedIndex;
+            var color = menucolores.options[menucolores.selectedIndex].value;
+            //Podemos acceder también de forma directa al contenido de la
+            //propiedad value
+            //var color = menucolores.value;
+            document.getElementById('documento').style.backgroundColor=color;
+            alert(color + " " + indice);
+            }
+        </script>
+    </head>
+    <body id="documento">
+        <form name="F1">
+            <select id="Colores">
+                <option value="#FF0000"> Rojo</option>
+                <option value="#00FF00"> Verde</option>
+                <option value="#0000FF"> Azul</option>
+                <option value="#FFFFFF"> Blanco</option>
+            </select>
+            <input type="button" name="boton1" value="Color Fondo" onClick="CambiarFondo()">
+        </form>
+    </body>
+</html>

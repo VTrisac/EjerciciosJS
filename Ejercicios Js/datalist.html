@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script>
+            function irA()
+            {
+                let menu=document.getElementById("menu");
+                window.location.href = menu.value;
+            }
+       </script>
+       <style>
+            datalist {
+                background-color: #FFA54A;
+                color: #000080;
+                font-size: 9pt;
+                font-weight: bold;
+            }
+       </style>
+    </head>
+    <body>
+        <form name="formulario">
+            <input list="listado" id="menu">
+            <datalist id="listado">
+                <option value="http://www.google.es">
+                <option value="http://www.yahoo.es">
+                <option value="http://www.bing.com">
+                <option value="http://es.ask.com">
+                <option value="http://yandex.com">
+            </datalist>
+            <input type="button" onclick="irA()" value="Enviar">
+        </form>
+    </body>
+</html>

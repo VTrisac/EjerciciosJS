@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function MostrarHora24()
+            {
+            let ahora = new Date();
+            let horas = ahora.getHours();
+            let minutos = ahora.getMinutes();
+            let segundos = ahora.getSeconds();
+            let ValorHora;
+            //Establece las horas añadiendo un 0 en el caso de que la hora sea menor
+            //de las 10 para que se usen siempre 2 dígitos
+            if (horas < 10)
+                ValorHora = "0" + horas;
+            else
+                ValorHora = "" + horas;
+                //Establece los minutos de la misma forma que las horas
+            if (minutos < 10)
+                ValorHora += ":0" + minutos;
+            else
+                ValorHora += ":" + minutos;
+                //Establece los segundos igual que para los minutos y horas
+            if (segundos < 10)
+                ValorHora += ":0" + segundos;
+            else
+                ValorHora += ":" + segundos;
+            
+            reloj24.digitos.value = ValorHora;
+            //Asignamos el valor de la variable a la caja de texto del formulario
+            setTimeout("MostrarHora24()",1000);
+            //Indicamos que se repita este procedimiento cada 1000 milisegundos
+            //o sea cada segundo
+        }
+        </script>
+    </head>
+    <body onLoad="MostrarHora24()">
+        <!--
+            Para que empiece a funcionar lo haremos cuando la página se cargue
+            en el evento onLoad de la etiqueta <body>
+        -->        
+        <form id="reloj24">
+        <input type="text" size="6" id="digitos" value="" style="font-size: 45px; color:#03F">
+        </form>
+    </body>
+</html>

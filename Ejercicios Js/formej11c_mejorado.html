@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            let TFrutas = new Array("Manzana","Pera","Platano","Naranja","Mandarina","Melocotón");
+            let TPos = ["Primero","Segundo","Tercero","Cuarto", "Quinto", "Sexto"];
+            function inicio(){
+                //Al cargar la página rellenamos las dos primeras listas con los
+                //datos iniciales               
+                  let cuadroFrutas = document.getElementById("frutas");
+                  let cuadroPos = document.getElementById("eliminar");            
+                  cuadroFrutas.options.length=0;
+                  cuadroPos.options.length=0;
+                  for (let i=0; i<6; i++)
+                  {                
+                    //Cada lista tiene que tener creado su elemento nuevo
+                    let elemento = document.createElement("option");
+                    elemento.text = TFrutas[i];
+                    cuadroFrutas.add(elemento); //Rellenamos la primera lista Frutas
+                    
+                    //Creamos nuevo elemento para la 2da lista para las posiciones 
+                    elemento = document.createElement("option");
+                    elemento.text = TPos[i];
+                    //Rellenaremos la propiedad value con la posición correspondiente
+                    //dentro del Array para luego usarla al eliminar
+                    elemento.value = i;
+                    cuadroPos.add(elemento);
+                  }                        
+            }
+            
+            function Borrarelemento() {
+                let y = document.getElementById("frutas");
+                //y será la lista que contiene las frutas
+                let x = document.getElementById("eliminar");
+                //Podemos utilizar dos forma para acceder a la propiedad value del 
+                //cuadro de lista eliminar directamente x.value o bien la anterior-
+                //mente comentada x.options[x.selectedIndex].value
+                 
+                //eliminamos de frutas la posición indicada en la lista eliminar
+                y.remove(x.value);
+               
+                //Ahora modificamos los elementos de la lista eliminar para que se
+                //ajusten a la cantidad de frutas disponibles
+                   
+                let cuadroPos = document.getElementById("eliminar");                            
+                cuadroPos.options.length=0;
+                 for (let i=0; i<y.options.length; i++)
+                  { 
+                  //y.options.length sabemos cuantos elementos hay hasta ahora en la
+                  //lista después de eliminar
+                   let elemento = document.createElement("option");
+                    elemento.text = TPos[i];
+                    //Rellenaremos la propiedad value con la posición correspondiente
+                    //dentro del Array para luego usarla al eliminar
+                    elemento.value = i;
+                    cuadroPos.add(elemento);
+                  }
+                
+                
+            }
+        </script>
+    </head>
+    <body onLoad="inicio()">
+        <h4>Seleccione la Fruta que desea Eliminar</h4>
+        <form>
+        <select id="frutas" size="6"></select>
+        <select id="eliminar" size="6" onclick="Borrarelemento();"></select>            
+        </form>
+        <br>
+    </body>
+</html>

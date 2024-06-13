@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function ponerfecha()
+            {
+                let Fecha = new Date(); //Crear objeto Fecha
+                let Fecha2 = new Date();
+                let dia=0, mes=0, anyo=0, total=0;
+                let campo=document.getElementById("Fecha1");
+                dia = parseInt(campo.value.substring(0,2)); //Convierte fecha a número
+                mes = parseInt(campo.value.substring(3,5)); //ídem con mes
+                anyo = parseInt(Fecha2.getFullYear()); //Pero utilizamos el año actual
+                Fecha.setDate(dia); //Fijar día de entrada para objeto Fecha
+                Fecha.setMonth(mes-1);
+                // Ídem para mes. El -1 es por que el rango es 0-11 no de 1-12
+                Fecha.setFullYear(anyo);
+                /* Ídem para año.
+                el método getTime retorna la fecha en formato UTC, es decir, en
+                milésimas de segundo. Se divide por 86400000 que son las milésimas de
+                segundo de un día para obtener la diferencia de días.*/
+                total = (Fecha.getTime() - Fecha2.getTime())/86400000;
+                if (total == 0) // La diferencia de días = 0
+                    alert("Felicidades !!!");
+                else
+                    if (total < 0) // Fecha entrada inferior a la actual
+                        alert("Hace "+total*-1+" días que has cumplido años");
+                    else
+                        alert("Faltan "+total+" días para tu cumpleaños");
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            let Fecha = new Date(); // Fecha = Fecha actual
+            document.write("<h3 style = 'color:#0000FF'>");
+            document.write("Hoy estamos a : ");
+            document.write("</h3>");
+            document.write(Fecha.toLocaleString());
+            // Mostrar la fecha en formato local, el definido en el ordenador
+        </script>
+        <br><br>
+        <form>
+            Entre su fecha de Nacimiento con formato dd/mm/aa:
+            <input type="Text" id="Fecha1" size="10" onChange="ponerfecha()"><br>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var Montaña = new Array("Alpes","Everest","Apeninos","Urales","Andes");
+            var Playa = new Array("Normandía","Cancún","Copacabana","Hawai", "Ibiza");
+            function rellenar(tipo)
+            {
+                //El parámetro tipo corresponderá al Array que utilizaremos
+                //para rellenar el select
+                var cuadrolista = document.getElementById("lista");
+                //Eliminamos todos los elementos anteriores de la lista
+                cuadrolista.options.length=0;
+                for (var i=0; i<tipo.length; i++)
+                {
+                    var elemento = document.createElement("option");
+                    //Es necesario crear la variable del nuevo elemento dentro del
+                    //bucle sino en lugar de añadir uno nuevo se realizará un reemplazar
+                    //el actual.
+                elemento.text = tipo[i];
+                cuadrolista.add(elemento);
+                }
+            }
+    </script>
+    </head>
+    <body>
+        <form id="F1">
+            <select id="lista">
+            </select>
+            <br><br>
+          <input type="radio" id="Escoger" name="Escoger" onClick="rellenar(Montaña)">Montañas
+          <br><input type="radio" id="Escoger" name="Escoger" onClick="rellenar(Playa)">Playas
+        </form>
+    </body>
+</html>

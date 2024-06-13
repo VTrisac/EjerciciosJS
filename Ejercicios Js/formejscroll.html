@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            //Scroll en una caja de texto
+            var txt=" Esta es la primera linea de texto que se desplaza"
+            + " y esta es la segunda, puedes poner todas las"
+            + " que quieras ! ";
+            function mover()
+            {
+                document.getElementById("caja").value = txt;
+                //Asignamos a la caja de texto del formulario el texto almacenado en txt
+
+                txt = txt.substring(1, txt.length) + txt.charAt(0);
+                setTimeout("mover()",150);
+            }
+        </script>
+    </head>
+    <body>
+        <form id="formu">
+            <input type="text" id="caja" size=64 onClick="mover();" value="Haz click aquí para comenzar">
+        </form>
+    </body>
+</html>
